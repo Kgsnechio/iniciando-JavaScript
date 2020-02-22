@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Aprendendo Eventons com DOM</title>
+    <style>
+        #botao{
+            font: normal 30pt arial;
+            color: white;
+            background-color: yellowgreen;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="botao">
+        interaja...
+    </div>
+    <script>
+        var medida = 200
+        var b = document.getElementById("botao")
+        b.addEventListener('click', clicou)
+        b.addEventListener('mouseenter', entrou)
+        b.addEventListener('mouseout', saiu)
+
+        function clicou(){
+            medida = medida + 50
+            b.style.height = String(medida + 'px')
+            b.style.width = String(medida + 'px')
+            b.innerText = 'Cliclou!'
+            b.style.background ='red'
+        }
+
+        function entrou(){
+            b.innerText = 'Entrou!'
+            b.style.background = 'blue'   
+        }
+
+        function saiu(){
+            b.innerText = 'Saiu!'
+            b.style.background = 'yellowgreen'
+        }
+
+    </script>
+</body>
+</html>
